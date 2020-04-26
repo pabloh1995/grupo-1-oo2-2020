@@ -1,0 +1,77 @@
+package datos;
+
+import java.util.Set;
+
+public class Sistema {
+
+	private Set<Local> Locales;
+	private Set<Cliente> Clientes;
+	private Set<Venta> Lotes;
+	private Set<Producto> Empleados;
+	private Set<SolicitudStock> SolicitudesStock;
+	private Set<Venta> Facturas;
+	
+	public Sistema() {
+
+	}
+
+	public Sistema(Set<Local> locales, Set<Cliente> clientes, Set<Venta> lotes, Set<Producto> empleados,
+			Set<SolicitudStock> solicitudesStock, Set<Venta> facturas) {
+		super();
+		Locales = locales;
+		Clientes = clientes;
+		Lotes = lotes;
+		Empleados = empleados;
+		SolicitudesStock = solicitudesStock;
+		Facturas = facturas;
+	}
+
+	public Set<Local> getLocales() {
+		return Locales;
+	}
+
+	public void setLocales(Set<Local> locales) {
+		Locales = locales;
+	}
+
+	public Set<Cliente> getClientes() {
+		return Clientes;
+	}
+
+	public void setClientes(Set<Cliente> clientes) {
+		Clientes = clientes;
+	}
+
+	public Set<Venta> getLotes() {
+		return Lotes;
+	}
+
+	public void setLotes(Set<Venta> lotes) {
+		Lotes = lotes;
+	}
+
+	public Set<Producto> getEmpleados() {
+		return Empleados;
+	}
+
+	public void setEmpleados(Set<Producto> empleados) {
+		Empleados = empleados;
+	}
+
+	public Set<SolicitudStock> getSolicitudesStock() {
+		return SolicitudesStock;
+	}
+
+	public void setSolicitudesStock(Set<SolicitudStock> solicitudesStock) {
+		SolicitudesStock = solicitudesStock;
+	}
+
+	public Set<Venta> getFacturas() {
+		return Facturas;
+	}
+
+	public void setFacturas(Set<Venta> facturas) {
+		Facturas = facturas;
+	}
+
+}

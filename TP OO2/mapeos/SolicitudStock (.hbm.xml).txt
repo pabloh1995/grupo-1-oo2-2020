@@ -1,0 +1,33 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="datos.SolicitudStock" table="solicitudStock">
+		<id column="id" name="id">
+			<generator class="identity" />
+		</id>
+		<property column="fecha" name="fecha" type="LocalDate" />
+		<property column="cantidad" name="cantidad" type="int" />
+		<property column="aceptado" name="aceptado" type="boolean" />
+
+		<set name="producto" table="producto" order-by="descripcion asc" inverse="true"
+			lazy="true" fetch="select">
+			<key column="descripcion" not-null="true" />
+			<one-to-many class="siststock.Producto" />
+		</set>
+
+		<set name="vendedor" table="empleado" order-by="id asc"
+			inverse="true" lazy="true" fetch="select">
+			<key column="id" not-null="true" />
+			<one-to-many class="siststock.Empleado" />
+		</set>
+
+		<set name="colaborador" table="empleado" order-by="id asc"
+			inverse="true" lazy="true" fetch="select">
+			<key column="id" not-null="true" />
+			<one-to-many class="siststock.Empleado" />
+		</set>
+
+	</class>
+</hibernate-mapping>

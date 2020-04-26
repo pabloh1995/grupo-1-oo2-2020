@@ -1,0 +1,40 @@
+package datos;
+
+import datos.Persona;
+import java.time.LocalDate;
+
+public class Cliente extends Persona {
+	private long idCliente;
+	private String email;
+
+	public Cliente() {
+	}
+
+	public Cliente(long dni, String apellido, String nombre, LocalDate fechaNacimiento, String email) {
+		super(dni, apellido, nombre, fechaNacimiento);
+		this.email = email;
+	}
+
+	public long getIdCliente() {
+		return idCliente;
+	}
+
+	protected void setIdCliente(int idCliente) {
+		this.idCliente = idCliente;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String toString() {
+		return "CLIENTE-dni:" + getDni() + "  nombre:" + getNombre() + "   apellido:" + getApellido()
+				+ "   fechaNacimiento:" + getFechaNacimiento().getDayOfMonth() + "/"
+				+ getFechaNacimiento().getMonthValue() + "/" + getFechaNacimiento().getYear() + "  email:" + email;
+	}
+
+}

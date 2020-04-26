@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="datos.DetalleVenta" table="detalleVenta">
+		<id column="idItem" name="idItem">
+			<generator class="identity" />
+		</id>
+		<property column="cantidad" name="cantidad" type="int" />
+		
+		<set name="producto" table="producto" order-by="idProducto asc"
+			inverse="true" lazy="true" fetch="select">
+			<key column="idLote" not-null="true" />
+			<one-to-many class="datos.Producto" />
+		</set>
+
+	</class>
+</hibernate-mapping>
