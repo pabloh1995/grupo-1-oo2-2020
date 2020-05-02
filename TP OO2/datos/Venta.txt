@@ -5,7 +5,6 @@ import java.util.*;
 
 public class Venta {
 	private long idVenta;
-	private Local local;
 	private Cliente cliente;
 	private LocalDate fechaActual;
 	private Empleado empleado;
@@ -16,10 +15,9 @@ public class Venta {
 
 	}
 
-	public Venta(Local local, Cliente cliente, LocalDate fechaActual, Empleado empleado,
+	public Venta(Cliente cliente, LocalDate fechaActual, Empleado empleado,
 			Set<DetalleVenta> detallesVenta) {
 		super();
-		this.local = local;
 		this.cliente = cliente;
 		this.fechaActual = fechaActual;
 		this.empleado = empleado;
@@ -33,14 +31,6 @@ public class Venta {
 
 	protected void setIdVenta(int idVenta) {
 		this.idVenta = idVenta;
-	}
-
-	public Local getLocal() {
-		return local;
-	}
-
-	public void setLocal(Local local) {
-		this.local = local;
 	}
 
 	public Cliente getCliente() {
@@ -69,7 +59,7 @@ public class Venta {
 
 	@Override
 	public String toString() {
-		return "Venta [idVenta=" + idVenta + ", local=" + local + ", cliente=" + cliente + ", fechaActual="
+		return "Venta [idVenta=" + idVenta + ", cliente=" + cliente + ", fechaActual="
 				+ fechaActual + ", empleado=" + empleado + "]";
 	}
 
