@@ -7,8 +7,6 @@
 			<generator class="identity" />
 		</id>
 		<property column="fechaActual" name="fechaActual" type="LocalDate" />
-
-		<one-to-one name="local" class="datos.Local"></one-to-one>
 		
 		<one-to-one name="cliente" class="datos.Cliente"></one-to-one>
 		

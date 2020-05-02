@@ -2,7 +2,7 @@ package datos;
 
 
 public class DetalleVenta {
-	private long idItem;
+	private long idDetalleVenta;
 	private Producto producto;
 	private int cantidad;
 
@@ -18,11 +18,11 @@ public class DetalleVenta {
 	}
 
 	public long getIdDetalleVenta() {
-		return idItem;
+		return idDetalleVenta;
 	}
 
 	protected void setIdDetalleVenta(int idDetalleVenta) {
-		this.idItem = idDetalleVenta;
+		this.idDetalleVenta = idDetalleVenta;
 	}
 
 	public Producto getProducto() {
@@ -43,7 +43,7 @@ public class DetalleVenta {
 
 	@Override
 	public String toString() {
-		return "\nDetalleVenta [idItem=" + idItem + ", producto=" + producto + ", cantidad=" + cantidad + "]";
+		return "\nDetalleVenta [idDetalleVenta=" + idDetalleVenta + ", producto=" + producto + ", cantidad=" + cantidad + "]";
 	}
 
 }
