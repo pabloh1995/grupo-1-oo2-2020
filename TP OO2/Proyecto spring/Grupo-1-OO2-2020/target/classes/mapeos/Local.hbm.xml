@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="datos.Local" table="local">
+		<id column="idLocal" name="idLocal">
+			<generator class="identity" />
+		</id>
+		<property column="telefono" name="telefono" type="long" />
+		<property column="direccion" name="direccion" type="string" />
+		<property column="latitud" name="latitud" type="float" />
+		<property column="longitud" name="longitud" type="float" />
+
+		<set name="lotes" table="lote" order-by="idLote asc"
+			inverse="true" lazy="true" fetch="select">
+			<key column="idLocal" not-null="true" />
+			<one-to-many class="datos.Lote" />
+		</set>
+		
+		<set name="empleados" table="empleado" order-by="idEmpleado asc"
+			inverse="true" lazy="true" fetch="select">
+			<key column="idLocal" not-null="true" />
+			<one-to-many class="datos.Empleado" />
+		</set>
+
+	</class>
+</hibernate-mapping>

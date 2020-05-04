@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="datos.Persona" table="persona">
+		<id column="idPersona" name="idPersona">
+			<generator class="identity" />
+		</id>
+		<property name="dni" column="dni" type="long" />
+		<property name="apellido" column="apellido" type="String" />
+		<property name="nombre" column="nombre" type="String" />
+		<property name="fechaNacimiento" column="fechaNacimiento"
+			type="LocalDate" />
+
+
+		<joined-subclass name="datos.Cliente" table="cliente">
+			<key column="idCliente" />
+			<property column="email" name="email" type="String" />
+		</joined-subclass>
+
+		<joined-subclass name="datos.Empleado" table="empleado">
+			<key column="idEmpleado" />
+			<property column="sueldoBasico" name="sueldoBasico" type="float" />
+			<property column="horarioTrabajoE" name="horarioTrabajoE" type="LocalTime" />
+			<property column="horarioTrabajoS" name="horarioTrabajoS" type="LocalTime" />
+			<property column="gerente" name="gerente" type="boolean" />
+			<many-to-one name="local" class="datos.Local" column="id" not-null="true" />
+		</joined-subclass>
+	</class>
+</hibernate-mapping>
