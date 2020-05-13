@@ -1,10 +1,8 @@
-apackage negocio;
+package negocio;
 
 import dao.VentaDao;
 import datos.*;
-import java.time.*;
 import java.util.List;
-import java.util.Set;
 
 public class VentaABM {
 	VentaDao dao = new VentaDao();
