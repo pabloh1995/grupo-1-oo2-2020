@@ -1,4 +1,4 @@
-package negocio;
+apackage negocio;
 
 import dao.VentaDao;
 import datos.*;
@@ -14,8 +14,7 @@ public class VentaABM {
 		return v;
 	}
 
-	public int agregar(long idVenta, Local local, Cliente cliente, LocalDate fechaActual, Empleado empleado, Set<DetalleVenta> listaDetallesVenta) {
-		Venta v = new Venta(idVenta, local, cliente, fechaActual, empleado, listaDetallesVenta);
+	public int agregar(Venta v) {
 		return dao.agregar(v);
 	}
 	
