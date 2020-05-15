@@ -1,0 +1,4 @@
+<form action="#" th:action="@{/persona/create}" th:object="${persona}" method="post">
+	<p>Name: <input type="text" th:field="*{nombre}" /></p>
+	<input type="submit" value="crear"/>
+</form>
