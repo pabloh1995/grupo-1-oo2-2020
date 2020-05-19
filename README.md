@@ -1,1 +1,1 @@
-# grupo-1-oo2-2020
+# TP Democratizacion de Stock 2020
