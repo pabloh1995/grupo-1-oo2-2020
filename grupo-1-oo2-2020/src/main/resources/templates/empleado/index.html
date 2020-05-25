@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Empleados</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<meta charset="UTF-8">
+</head>
+
+<body>
+<h1 id="header">
+<a id="unla" href="/index">UNLa</a> 
+Empleados
+</h1>
+<div th:classappend="'alert-' + (${clase != null} ? ${clase} : info)" th:if="${mensaje != null}" th:text="${mensaje}" class="alert"> </div>
+    <table class="table">
+        <thead class="thead-dark">
+		<tr>
+			<th>Id</th>
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>Fecha de Nacimiento</th>
+			<th>DNI</th>
+			<th>Sueldo Basico</th>
+			<th>Comisión</th>
+			<th>Horario de Entrada</th>
+			<th>Horario de Salida</th>
+			<th>Gerente</th>
+			<th>Local</th>
+			<th>Acción</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="empleado : ${empleado}">
+			<td><span th:text="${empleado.idPersona}" /></td>
+			<td><span th:text="${empleado.nombre}" /></td>
+			<td><span th:text="${empleado.apellido}" /></td>
+			<td><span th:text="${empleado.fechaNacimiento}" /></td>
+			<td><span th:text="${empleado.dni}" /></td>
+			<td><span th:text="${empleado.sueldoBasico}" /></td>
+			<td><span th:text="${empleado.comision}" /></td>
+			<td><span th:text="${empleado.horarioTrabajoE}" /></td>
+			<td><span th:text="${empleado.horarioTrabajoS}" /></td>
+			<td><span th:text="${empleado.gerente}" /></td>
+			<td><span th:text="${empleado.local.direccion}" /></td>
+
+                <td><a th:href="@{/empleado/{id}(id=${empleado.idPersona})}">Modificar</a></td>
+
+            </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-success" href="/empleado/new">Agregar</a>
+
+</body>
+
+</html>

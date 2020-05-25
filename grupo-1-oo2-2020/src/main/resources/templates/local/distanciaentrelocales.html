@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Calcular Distancia</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<meta charset="UTF-8">
+</head>
+
+<body>
+<div id="agregarTitulo">
+<h1>
+Calcular Distancia
+</h1>
+</div>
+<div class="card bg-light col-md-7 mt-5 p-3 mx-auto">
+<form action="sacardistancia" method="post">
+      <div class="form-group">
+    <label for="exampleFormControlSelect1">Local "A"</label>
+    <select class="form-control" id="exampleFormControlSelect1" placeholder="Local1" name="local1.idLocal">
+			<option th:each= "l : ${locales}" th:value="${l.idLocal}" th:text= "${l.direccion}"> </option> 
+		</select>
+  </div>
+      <div class="form-group">
+    <label for="exampleFormControlSelect1">Local "B"</label>
+    <select class="form-control" id="exampleFormControlSelect1" placeholder="Local2" name="local2.idLocal">
+			<option th:each= "l : ${locales}" th:value="${l.idLocal}" th:text= "${l.direccion}"> </option> 
+		</select>
+  </div>
+  <button type="submit" class="btn btn-primary">Calcular</button>
+</form>
+</div>
+</body>
+
+</html>

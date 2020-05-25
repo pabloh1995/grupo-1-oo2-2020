@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Productos</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<h1 id="header">
+<a id="unla" href="/index">UNLa</a> 
+Productos
+</h1>
+	<div th:classappend="'alert-' + (${clase != null} ? ${clase} : info)" th:if="${mensaje != null}" th:text="${mensaje}" class="alert">
+       	 </div>
+  	  <table class="table">
+        <thead class="thead-dark">
+            <tr class="bg-info">
+            	<th>Id</th>
+            	<th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="producto : ${producto}">
+            	<td><span th:text="${producto.idProducto}" /></td>
+            	<td><span th:text="${producto.nombre}" /></td>
+                <td><span th:text="${producto.descripcion}" /></td>
+                <td><span th:text="${producto.precioUnitario}" /></td>
+                
+                <td><a th:href="@{/producto/{id}(id=${producto.idProducto})}">Modificar</a></td>
+
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-success" href="/producto/new">Agregar</a>
+
+</body>
+
+</html>

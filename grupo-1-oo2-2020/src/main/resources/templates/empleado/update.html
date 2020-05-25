@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Actualizar Empleado</title>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../../static/css/bootstrap.css">
+
+
+</head>
+
+<body>
+
+    <form action="#" th:action="@{/empleado/update}" th:object="${empleado}" method="post">
+        <input type="hidden" th:field="*{idPersona}" />
+		<p>
+			Nombre: <input type="text" th:field="*{nombre}" />
+		</p>
+		<p>
+			Apellido: <input type="text" th:field="*{apellido}" />
+		</p>
+		<p>
+			Fecha de Nacimiento: <input type="date" th:field="*{fechaNacimiento}" />
+		</p>
+		<p>
+			DNI: <input type="text" th:field="*{dni}" />
+		</p>
+		<p>
+			Sueldo Basico: <input type="text" th:field="*{sueldoBasico}" />
+		</p>
+		<p>
+			Comision: <input type="text" th:field="*{comision}" />
+		</p>
+		<p>
+			Horario Trabajo Entrada: <input type="text" th:field="*{horarioTrabajoE}" />
+		</p>
+		<p>
+			Horario Trabajo Salida: <input type="text" th:field="*{horarioTrabajoS}" />
+		</p>
+		<p>
+			Es gerente: <input type="text" th:field="*{gerente}" />
+		</p>
+		<p>
+			Local:
+		</p>
+        <select placeholder="Local" th:field="*{local.idLocal}">
+			<option th:each="l : ${local}" th:value="${l.idLocal}"
+				th:text="${l.idLocal}"></option>
+		</select>
+
+        <br>
+
+        <input type="submit" value="Editar" />
+
+    </form>
+    <form action="#" th:action="@{/empleado/delete/{id}(id=${empleado.idPersona})}" method="post">
+        <input type="submit" value="delete person" />
+    </form>
+    <form action="#" th:action="@{/empleado/back}" method="post">
+        <input type="submit" value="volver" />
+    </form>
+
+</body>
+
+</html>

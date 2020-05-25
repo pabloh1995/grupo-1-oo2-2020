@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Agregar Local</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<meta charset="UTF-8">
+</head>
+
+<body>
+<div id="agregarTitulo">
+<h1>
+<a id="unla" href="/index">UNLa</a> 
+Agregar Local
+</h1>
+</div>
+<div class="card bg-light col-md-7 mt-5 p-3 mx-auto">
+<form action="#" th:action="@{/local/create}" th:object="${local}" method="post">
+  <div class="form-group">
+    <label for="direccion">Dirección</label>
+    <input type="text" class="form-control" th:field="*{direccion}" id="dato">
+  </div>
+    <div class="form-group">
+    <label for="latitud">Latitud</label>
+    <input type="text" class="form-control" th:field="*{latitud}" id="dato">
+  </div>
+    <div class="form-group">
+    <label for="longitud">Longitud</label>
+    <input type="text" class="form-control" th:field="*{longitud}" id="dato">
+  </div>
+    <div class="form-group">
+    <label for="telefono">Teléfono</label>
+    <input type="text" class="form-control" th:field="*{telefono}" id="dato">
+  </div>
+  <button type="submit" class="btn btn-primary">Agregar</button>
+</form>
+</div>
+</body>
+
+</html>

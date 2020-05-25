@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Clientes</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+</head>
+
+<body>
+	<h1 id="header">
+		<a id="unla" href="/index">UNLa</a> Clientes
+	</h1>
+	<div th:classappend="'alert-' + (${clase != null} ? ${clase} : info)" th:if="${mensaje != null}" th:text="${mensaje}" class="alert"></div>
+	<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th>Id</th>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>Fecha De Nacimiento</th>
+				<th>DNI</th>
+				<th>E-mail</th>
+				<th>Acción</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+			<tr th:each="cliente : ${cliente}">
+				<td><span th:text="${cliente.idPersona}" /></td>
+				<td><span th:text="${cliente.nombre}" /></td>
+				<td><span th:text="${cliente.apellido}" /></td>
+				<td><span th:text="${cliente.fechaNacimiento}" /></td>
+				<td><span th:text="${cliente.dni}" /></td>
+				<td><span th:text="${cliente.email}" /></td>
+				<td><a th:href="@{/cliente/{id}(id=${cliente.idPersona})}">Modificar</a></td>
+			</tr>
+
+		</tbody>
+	</table>
+
+	<a class="btn btn-success" href="/cliente/new">Agregar</a>
+
+</body>
+
+</html>

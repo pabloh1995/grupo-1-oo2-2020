@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Local</title>
+<link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<meta charset="UTF-8"></head>
+<body>
+<h1 id="header">
+<a id="unla" href="/index">UNLa</a> 
+Locales
+</h1>
+    <table class="table">
+    	<thead class="thead-dark">
+            <tr class="bg-info">
+            	<th>Id</th>
+                <th>Direccion</th>
+                <th>Latitud</th>
+                <th>Longitud</th>
+                <th>Telefono</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="local : ${local}">
+            	<td><span th:text="${local.idLocal}" /></td>
+                <td><span th:text="${local.direccion}" /></td>
+                <td><span th:text="${local.latitud}" /></td>
+                <td><span th:text="${local.longitud}" /></td>
+                <td><span th:text="${local.telefono}" /></td>
+                <td><a th:href="@{/local/{id}(id=${local.idLocal})}">Modificar</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-success" href="/local/new">Agregar</a>
+
+</body>
+
+</html>
