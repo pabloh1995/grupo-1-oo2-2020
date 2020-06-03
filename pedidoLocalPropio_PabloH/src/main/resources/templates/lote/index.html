@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lote</title>
+<link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<meta charset="UTF-8"></head>
+<body>
+<h1 id="header">
+<a id="unla" href="/index">UNLa</a> 
+Lotes
+</h1>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr class="bg-info">
+                <th>Fecha de Ingreso</th>
+                <th>Cantidad de Ingreso</th>
+                <th>Cantidad Actual</th>
+                <th>Activo</th>
+                <th>Producto</th>
+                <th>Local</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="lote : ${lote}">
+                <td><span th:text="${lote.fechaIngreso}" /></td>
+                <td><span th:text="${lote.cantidadIngreso}" /></td>
+                <td><span th:text="${lote.cantidadActual}" /></td>
+                <td><span th:text="${lote.activo}" /></td>
+                <td><span th:text="${lote.producto.nombre}" /></td>
+                <td><span th:text="${lote.local.direccion}" /></td>
+                <td><a th:href="@{/lote/{id}(id=${lote.idLote})}">Modificar</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="/lote/new">Agregar</a>
+
+
+</body>
+
+</html>

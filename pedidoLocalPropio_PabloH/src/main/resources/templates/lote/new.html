@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Agregar Lote</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<meta charset="UTF-8">
+</head>
+
+<body>
+<nav id="agregarTitulo">
+<h1>
+<a id="unla" href="/index">UNLa</a> 
+Agregar Lote
+</h1>
+</nav>
+<div class="card bg-light col-md-7 mt-5 p-3 mx-auto">
+<form action="#" th:action="@{/lote/create}" th:object="${lote}" method="post">
+  <div class="form-group">
+    <label for="date">Fecha de Ingreso</label>
+    <input type="date" class="form-control" th:field="*{fechaIngreso}" id="dato">
+  </div>
+    <div class="form-group">
+    <label for="cantidadIngreso">Cantidad de Ingreso</label>
+    <input type="text" class="form-control" th:field="*{cantidadIngreso}" id="dato">
+  </div>
+    <div class="form-group">
+    <label for="cantidadActual">Cantidad Actual</label>
+    <input type="text" class="form-control" th:field="*{cantidadActual}" id="dato">
+  </div>
+    <div class="form-group">
+    <label for="activo">Activo</label>
+    <input type="text" class="form-control" th:field="*{activo}" id="dato">
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlSelect1">Producto</label>
+    <select class="form-control" id="exampleFormControlSelect1" placeholder="Producto" th:field="*{producto.idProducto}">
+			<option th:each= "p : ${producto}" th:value="${p.idProducto}" th:text= "${p.nombre}"> </option> 
+		</select>
+      <div class="form-group">
+    <label for="exampleFormControlSelect1">Local</label>
+    <select class="form-control" id="exampleFormControlSelect1" placeholder="Local" th:field="*{local.idLocal}">
+			<option th:each= "l : ${locales}" th:value="${l.idLocal}" th:text= "${l.direccion}"> </option> 
+		</select>
+  </div>
+  <button type="submit" class="btn btn-primary">Agregar</button>
+</form>
+
+</body>
+
+</html>

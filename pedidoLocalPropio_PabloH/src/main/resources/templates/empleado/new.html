@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Agregar Empleado</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<meta charset="UTF-8">
+</head>
+
+<body>
+<div id="agregarTitulo">
+<h1>
+<a id="unla" href="/index">UNLa</a> 
+Agregar Empleado
+</h1>
+</div>
+<div class="card bg-light col-md-7 mt-5 p-3 mx-auto">
+<form action="#" th:action="@{/empleado/create}" th:object="${empleado}" method="post">
+  <div class="form-group">
+    <label for="nombre">Nombre</label>
+    <input type="text" class="form-control" th:field="*{nombre}" id="dato">
+  </div>
+    <div class="form-group">
+    <label for="apellido">Apellido</label>
+    <input type="text" class="form-control" th:field="*{apellido}" id="dato">
+  </div>
+    <div class="form-group">
+    <label for="fechaDeNacimiento">Fecha De Nacimiento</label>
+    <input type="date" class="form-control" th:field="*{fechaNacimiento}" id="dato">
+  </div>
+    <div class="form-group">
+    <label for="dni">DNI</label>
+    <input type="text" class="form-control" th:field="*{dni}" id="dato">
+  </div>
+    <div class="form-group">
+    <label for="sueldoBasico">Sueldo Básico</label>
+    <input type="text" class="form-control" th:field="*{sueldoBasico}" id="dato">
+  </div>
+      <div class="form-group">
+    <label for="dni">Comisión</label>
+    <input type="text" class="form-control" th:field="*{comision}" id="dato">
+  </div>
+      <div class="form-group">
+    <label for="dni">Horario de Entrada</label>
+    <input type="time" class="form-control" th:field="*{horarioTrabajoE}" id="dato">
+  </div>
+      <div class="form-group">
+    <label for="dni">Horario de Salida</label>
+    <input type="time" class="form-control" th:field="*{horarioTrabajoS}" id="dato">
+  </div>
+      <div class="form-group">
+    <label for="dni">Gerente</label>
+    <input type="text" class="form-control" th:field="*{gerente}" id="dato">
+  </div>
+      <div class="form-group">
+    <label for="exampleFormControlSelect1">Local</label>
+    <select class="form-control" id="exampleFormControlSelect1" placeholder="Local" th:field="*{local.idLocal}">
+			<option th:each= "l : ${locales}" th:value="${l.idLocal}" th:text= "${l.direccion}"> </option> 
+		</select>
+  </div>
+  <button type="submit" class="btn btn-primary">Agregar</button>
+</form>
+</div>
+
+</body>
+
+</html>
