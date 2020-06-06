@@ -15,21 +15,31 @@ Pedidos
     <table class="table">
     	<thead class="thead-dark">
             <tr class="bg-info">
-            	<th>Id Pedido</th>
                 <th>Fecha de Pedido</th>
                 <th>Producto</th>
                 <th>Cantidad</th>
+                <th>PrecioUnitario</th>
                 <th>Local</th>
-                
+                <th>Vendedor</th>
+                <th>Colaborador</th>
+                <th>Cliente</th>
+                <th>Estado</th>
+                <th>Subtotal</th>
+                <th>Accion</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="pedido : ${pedido}">
-            	<td><span th:text="${pedido.idPedido}" /></td>
                 <td><span th:text="${pedido.fechaPedido}" /></td>
                 <td><span th:text="${pedido.producto.nombre}" /></td>
                 <td><span th:text="${pedido.cantidad}" /></td>
+                <td><span th:text="${pedido.producto.precioUnitario}" /></td>
                 <td><span th:text="${pedido.local.direccion}" /></td>
+                <td><span th:if="${pedido.vendedor}" th:text="${pedido.vendedor.nombre} +' '+ ${pedido.vendedor.apellido}" /></td>
+                <td><span th:if="${pedido.colaborador}" th:text="${pedido.colaborador.nombre} +' '+ ${pedido.colaborador.apellido}" /></td>
+                <td><span th:text="${pedido.cliente.nombre} +' ' + ${pedido.cliente.apellido}" /></td>
+                <td><span th:text="${pedido.aceptado}" /></td>
+                <td><span th:text="${pedido.subtotal}" /></td>
                 <td><a th:href="@{/pedido/{id}(id=${pedido.idPedido})}">Modificar</a></td>
             </tr>
         </tbody>

@@ -51,7 +51,7 @@ public class PedidoService implements IPedidoService{
 	
 	@Override
 	public PedidoModel insert(PedidoModel pedidoModel) {
-		//pedidoModel.setLocal(localService.findByIdLocal(pedidoModel.getLocal().getIdLocal()));
+		pedidoModel.setLocal(localService.findByIdLocal(pedidoModel.getLocal().getIdLocal()));
 		Pedido pedido=pedidoRepository.save(pedidoConverter.modelToEntity(pedidoModel));
 		return pedidoConverter.entityToModel(pedido);
 	}
