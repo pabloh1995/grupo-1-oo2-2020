@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+<head>
+<title>Modificar Cliente</title>
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+<meta charset="UTF-8">
+</head>
+<div layout:fragment="content">
+<body>
+	<div id="agregarTitulo">
+		<h1>UNLA - Modificar Cliente</h1>
+	</div>
+	<div class="card bg-light col-md-7 mt-5 p-3 mx-auto">
+		<form action="#" th:action="@{/cliente/update}" th:object="${cliente}"
+			method="post">
+			<input type="hidden" th:field="*{idPersona}"  />
+			
+			<div class="form-group">
+				<label for="nombre">Nombre</label> <input type="text"
+					class="form-control" th:field="*{nombre}" id="dato">
+			</div>
+			<div class="form-group">
+				<label for="apellido">Apellido</label> <input type="text"
+					class="form-control" th:field="*{apellido}" id="dato">
+			</div>
+			<div class="form-group">
+				<label for="fechaDeNacimiento">Fecha De Nacimiento</label> <input
+					type="date" class="form-control" th:field="*{fechaNacimiento}"
+					id="dato">
+			</div>
+			<div class="form-group">
+				<label for="dni">DNI</label> <input type="text" class="form-control"
+					th:field="*{dni}" id="dato">
+			</div>
+			<div class="form-group">
+				<label for="email">Email</label> <input type="email"
+					class="form-control" th:field="*{email}" id="dato"
+					aria-describedby="emailHelp">
+			</div>
+			<input class="update" type="submit" value="Editar" />
+		</form>
+
+		<form action="#" th:action="@{/cliente/back}" method="post">
+			<button type="submit" class="btn btn-dark">Volver</button>
+		</form>
+	</div>
+
+</body>
+</div>
+</html>
