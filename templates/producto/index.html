@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+<head>
+<title>Productos</title>
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+<meta charset="UTF-8">
+</head>
+<div layout:fragment="content">
+	<body>
+		<h1 id="header">Productos</h1>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr class="bg-info">
+					<th>Nombre</th>
+					<th>Descripcion</th>
+					<th>Precio</th>
+					<th>Fecha Alta</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="producto : ${producto}">
+					<td><span th:text="${producto.nombre}" /></td>
+					<td><span th:text="${producto.descripcion}" /></td>
+					<td><span th:text="${producto.precioUnitario}" /></td>
+					<td><span th:text="${producto.fechaAlta}" /></td>
+					<td><a class="btn btn-warning"  th:href="@{/producto/{id}(id=${producto.idProducto})}">Modificar</a></td>
+					<td>
+						<form action="#"
+							th:action="@{/producto/delete/{id}(id=${producto.idProducto})}"
+							method="post">
+							<button type="submit" class="btn btn-danger">Elminar
+								Producto</button>
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<a class="btn btn-primary" href="/producto/new">Agregar</a>
+
+	</body>
+</div>
+</html>
