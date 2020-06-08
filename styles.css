@@ -1,0 +1,37 @@
+#boton {
+	background-color: dark;
+	border: none;
+	color: darkgrey;
+}
+
+#agregarTitulo {
+	text-align: center;
+	margin-top: 10px;
+}
+
+#header {
+	text-align: center;
+}
+
+.html {
+	position: relative;
+	min-height: 50%;
+	background-image:
+		url(https://doofindermedia.s3.amazonaws.com/blog/2016/07/gestion-tienda-fisica-y-online.jpg);
+	background-color: rgb(1, 194, 237);
+	background-repeat: no-repeat;
+	background-size: 80%;
+	background-position-x: center;
+	background-position-y: 100px;
+}
+
+.texto {
+	text-align: center;
+	color: #000;
+}
+
+#home {
+	text-align: center;
+	margin-top: 200px;
+	font-size: 100px;
+}
