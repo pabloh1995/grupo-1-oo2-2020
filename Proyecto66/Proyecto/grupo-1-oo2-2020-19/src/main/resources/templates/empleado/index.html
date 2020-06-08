@@ -13,7 +13,7 @@
 </head>
 <div layout:fragment="content">
 	<body>
-		<h1 id="header">UNLA - Empleados</h1>
+		<h1 id="header">Empleados</h1>
 		<div th:classappend="'alert-' + (${clase != null} ? ${clase} : info)"
 			th:if="${mensaje != null}" th:text="${mensaje}" class="alert">
 		</div>
@@ -48,12 +48,13 @@
 					<td><span th:text="${empleado.gerente}" /></td>
 					<td><span th:text="${empleado.local.direccion}" /></td>
 
-					<td><a th:href="@{/empleado/{id}(id=${empleado.idPersona})}">Modificar</a></td>
+					<td><a class="btn btn-warning" th:href="@{/empleado/{id}(id=${empleado.idPersona})}">Modificar</a></td>
 					<td>
-						<form action="#" th:action="@{/empleado/delete/{id}(id=${empleado.idPersona})}"
+						<form action="#"
+							th:action="@{/empleado/delete/{id}(id=${empleado.idPersona})}"
 							method="post">
-							<button type="submit" class="btn btn-danger">Eliminar Empleado</button>
-							</form>
+							<button type="submit" class="btn btn-danger">Elminar
+								Empleado</button>
 					</td>
 				</tr>
 			</tbody>

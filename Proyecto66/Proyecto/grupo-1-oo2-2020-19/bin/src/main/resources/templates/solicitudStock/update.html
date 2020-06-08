@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{layout}">
+<html>
 
 <head>
-<title>Agregar Pedido</title>
+<title>Agregar SolicitudStock</title>
 <link rel="stylesheet" href="/css/styles.css">
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -11,19 +10,19 @@
 	crossorigin="anonymous">
 <meta charset="UTF-8">
 </head>
-<div layout:fragment="content">
+
 <body>
 	<div id="agregarTitulo">
 		<h1>
-			Agregar Pedido
+			 Agregar SolicitudStock
 		</h1>
 	</div>
 	<div class="card bg-light col-md-7 mt-5 p-3 mx-auto">
-		<form action="#" th:action="@{/pedido/create}" th:object="${pedido}"
+		<form action="#" th:action="@{/solicitudStock/update}" th:object="${solicitudStock}"
 			method="post">
 			<div class="form-group">
-				<label for="fechaPedido">Fecha de Pedido</label> <input type="date"
-					class="form-control" th:field="*{fechaPedido}" id="dato">
+				<label for="fechaSolicitudStock">Fecha Solicitud Stock</label> <input type="text"
+					class="form-control" th:field="*{fechaSolicitudStock}" id="dato">
 			</div>
 			<div class="form-group">
 				<label for="exampleFormControlSelect1">Producto</label> <select
@@ -38,6 +37,10 @@
 					class="form-control" th:field="*{cantidad}" id="dato">
 			</div>
 			<div class="form-group">
+				<label for="aceptado">Aceptado</label> <input type="text"
+					class="form-control" th:field="*{aceptado}" id="dato">
+			</div>
+			<div class="form-group">
 				<label for="exampleFormControlSelect1">Local</label> <select
 					class="form-control" id="exampleFormControlSelect1"
 					placeholder="Local" th:field="*{local.idLocal}">
@@ -45,9 +48,12 @@
 						th:text="${l.direccion}"></option>
 				</select>
 			</div>
-			<button type="submit" class="btn btn-primary">Agregar</button>
+			<input type="submit" class="btn btn-primary" value="Editar" />
+		</form>
+		<form action="#" th:action="@{/local/back}" method="post">
+			<button type="submit" class="btn btn-dark" style="float: right">Volver</button>
 		</form>
 	</div>
 </body>
-</div>
+
 </html>

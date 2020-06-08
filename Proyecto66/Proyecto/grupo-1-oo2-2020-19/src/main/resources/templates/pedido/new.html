@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
 
 <head>
 <title>Agregar Pedido</title>
@@ -10,17 +11,17 @@
 	crossorigin="anonymous">
 <meta charset="UTF-8">
 </head>
-
+<div layout:fragment="content">
 <body>
 	<div id="agregarTitulo">
 		<h1>
-			<a id="unla" href="/index">UNLa</a> Agregar Pedido
+			Agregar Pedido
 		</h1>
 	</div>
 	<div class="card bg-light col-md-7 mt-5 p-3 mx-auto">
 		<form action="#" th:action="@{/pedido/create}" th:object="${pedido}"
 			method="post">
-
+			
 			<div class="form-group">
 				<label for="exampleFormControlSelect1">Producto</label> <select
 					class="form-control" id="exampleFormControlSelect1"
@@ -29,43 +30,21 @@
 						th:text="${p.nombre}"></option>
 				</select>
 			</div>
-
 			<div class="form-group">
-				<label for="longitud">Cantidad</label> <input type="text"
+				<label for="cantidad">Cantidad</label> <input type="text"
 					class="form-control" th:field="*{cantidad}" id="dato">
 			</div>
-
 			<div class="form-group">
-				<label for="cliente">Cliente</label> 
-				<select
-					class="form-control" placeholder="Cliente" th:field="*{cliente.idPersona}">
-					<option th:each="c : ${cliente}" th:value="${c.idPersona}"
-						th:text="${c.nombre} +' '+ ${c.apellido}"></option>
+				<label for="exampleFormControlSelect1">Local</label> <select
+					class="form-control" id="exampleFormControlSelect1"
+					placeholder="Local" th:field="*{local.idLocal}">
+					<option th:each="l : ${locales}" th:value="${l.idLocal}"
+						th:text="${l.direccion}"></option>
 				</select>
 			</div>
-
-			<div class="form-group">
-				<label for="vendedor">Vendedor</label>
-					<select 
-					class="form-control" 
-					placeholder="Empleado" th:field="*{vendedor.idPersona}">
-						<option th:each="e : ${empleado}" th:value="${e.idPersona}"
-							th:text="${e.nombre} +' '+ ${e.apellido}"></option>
-					</select>
-			</div>
-
-			<div class="form-group">
-				<strong>Estado</strong> <input type="checkbox"
-					th:field="*{aceptado}" />
-			</div>
-
-			<input type="hidden" th:field="*{vendedor.Local.idLocal}" />
-			
-			<div class="text-center">
-				<input type="submit" class="btn btn-primary button" value="Agregar" />
-			</div>
-			
+			<button type="submit" class="btn btn-primary">Agregar</button>
 		</form>
+	</div>
 </body>
-
+</div>
 </html>

@@ -12,50 +12,48 @@
 <meta charset="UTF-8">
 </head>
 <div layout:fragment="content">
-<body>
-	<nav id="agregarTitulo">
-		<h1>
-			<a id="unla" href="/index">UNLa</a> Agregar Lote
-		</h1>
-	</nav>
-	<div class="card bg-light col-md-7 mt-5 p-3 mx-auto">
-		<form action="#" th:action="@{/lote/create}" th:object="${lote}"
-			method="post">
-			<div class="form-group">
-				<label for="date">Fecha de Ingreso</label> <input type="date"
-					class="form-control" th:field="*{fechaIngreso}" id="dato">
-			</div>
-			<div class="form-group">
-				<label for="cantidadIngreso">Cantidad de Ingreso</label> <input
-					type="text" class="form-control" th:field="*{cantidadIngreso}"
-					id="dato">
-			</div>
-			<div class="form-group">
-				<label for="cantidadActual">Cantidad Actual</label> <input
-					type="text" class="form-control" th:field="*{cantidadActual}"
-					id="dato">
-			</div>
-			<div class="form-group">
-				<label for="activo">Activo</label> <input type="text"
-					class="form-control" th:field="*{activo}" id="dato">
-			</div>
-			<div class="form-group">
-				<label for="exampleFormControlSelect1">Producto</label> <select
-					class="form-control" id="exampleFormControlSelect1"
-					placeholder="Producto" th:field="*{producto.idProducto}">
-					<option th:each="p : ${producto}" th:value="${p.idProducto}"
-						th:text="${p.nombre}"></option>
-				</select>
+	<body>
+		<nav id="agregarTitulo">
+			<h1>Agregar Lote</h1>
+		</nav>
+		<div class="card bg-light col-md-7 mt-5 p-3 mx-auto">
+			<form action="#" th:action="@{/lote/create}" th:object="${lote}"
+				method="post">
 				<div class="form-group">
-					<label for="exampleFormControlSelect1">Local</label> <select
-						class="form-control" id="exampleFormControlSelect1"
-						placeholder="Local" th:field="*{local.idLocal}">
-						<option th:each="l : ${locales}" th:value="${l.idLocal}"
-							th:text="${l.direccion}"></option>
-					</select>
+					<label for="date">Fecha de Ingreso</label> <input type="date"
+						class="form-control" th:field="*{fechaIngreso}" id="dato">
 				</div>
-				<button type="submit" class="btn btn-primary">Agregar</button>
-		</form>
-</body>
+				<div class="form-group">
+					<label for="cantidadIngreso">Cantidad de Ingreso</label> <input
+						type="text" class="form-control" th:field="*{cantidadIngreso}"
+						id="dato">
+				</div>
+				<div class="form-group">
+					<label for="cantidadActual">Cantidad Actual</label> <input
+						type="text" class="form-control" th:field="*{cantidadActual}"
+						id="dato">
+				</div>
+				<div class="form-group">
+					<label for="activo">Activo</label> <input type="checkbox"
+						th:field="*{activo}" />
+				</div>
+				<div class="form-group">
+					<label for="exampleFormControlSelect1">Producto</label> <select
+						class="form-control" id="exampleFormControlSelect1"
+						placeholder="Producto" th:field="*{producto.idProducto}">
+						<option th:each="p : ${producto}" th:value="${p.idProducto}"
+							th:text="${p.nombre}"></option>
+					</select>
+					<div class="form-group">
+						<label for="exampleFormControlSelect1">Local</label> <select
+							class="form-control" id="exampleFormControlSelect1"
+							placeholder="Local" th:field="*{local.idLocal}">
+							<option th:each="l : ${locales}" th:value="${l.idLocal}"
+								th:text="${l.direccion}"></option>
+						</select>
+					</div>
+					<button type="submit" class="btn btn-primary">Agregar</button>
+			</form>
+	</body>
 </div>
 </html>

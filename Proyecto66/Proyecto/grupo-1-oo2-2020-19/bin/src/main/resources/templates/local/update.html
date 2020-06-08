@@ -13,7 +13,7 @@
 <div layout:fragment="content">
 	<body>
 		<div id="agregarTitulo">
-			<h1>UNLA - Modificar Local</h1>
+			<h1>Modificar Local</h1>
 		</div>
 		<div class="card bg-light col-md-7 mt-5 p-3 mx-auto">
 			<form action="#" th:action="@{/local/update}" th:object="${local}"
@@ -36,10 +36,10 @@
 					<label for="telefono">Teléfono</label> <input type="text"
 						class="form-control" th:field="*{telefono}" id="dato">
 				</div>
-				<input class="update" type="submit" value="Editar" />
+				<input class="btn btn-primary" type="submit" value="Editar" />
 			</form>
 			<form action="#" th:action="@{/local/back}" method="post">
-				<button type="submit" class="btn btn-dark">Volver</button>
+				<button type="submit" class="btn btn-dark" style="float: right">Volver</button>
 			</form>
 		</div>
 	</body>

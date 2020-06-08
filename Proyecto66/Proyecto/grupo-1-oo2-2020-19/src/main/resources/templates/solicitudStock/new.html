@@ -3,7 +3,7 @@
 	layout:decorate="~{layout}">
 
 <head>
-<title>Agregar Pedido</title>
+<title>Agregar SolicitudStock</title>
 <link rel="stylesheet" href="/css/styles.css">
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -15,15 +15,15 @@
 <body>
 	<div id="agregarTitulo">
 		<h1>
-			Agregar Pedido
+			Agregar SolicitudStock
 		</h1>
 	</div>
 	<div class="card bg-light col-md-7 mt-5 p-3 mx-auto">
-		<form action="#" th:action="@{/pedido/create}" th:object="${pedido}"
+		<form action="#" th:action="@{/solicitudStock/create}" th:object="${solicitudStock}"
 			method="post">
 			<div class="form-group">
-				<label for="fechaPedido">Fecha de Pedido</label> <input type="date"
-					class="form-control" th:field="*{fechaPedido}" id="dato">
+				<label for="fechaSolicitudStock">Fecha Solicitud Stock</label> <input type="text"
+					class="form-control" th:field="*{fechaSolicitudStock}" id="dato">
 			</div>
 			<div class="form-group">
 				<label for="exampleFormControlSelect1">Producto</label> <select
@@ -36,6 +36,10 @@
 			<div class="form-group">
 				<label for="cantidad">Cantidad</label> <input type="text"
 					class="form-control" th:field="*{cantidad}" id="dato">
+			</div>
+			<div class="form-group">
+				<label for="aceptado">Aceptado</label> <input type="text"
+					class="form-control" th:field="*{aceptado}" id="dato">
 			</div>
 			<div class="form-group">
 				<label for="exampleFormControlSelect1">Local</label> <select

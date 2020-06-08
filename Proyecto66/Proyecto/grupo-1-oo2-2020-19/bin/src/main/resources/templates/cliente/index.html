@@ -36,7 +36,7 @@
 					<td><span th:text="${cliente.fechaNacimiento}" /></td>
 					<td><span th:text="${cliente.dni}" /></td>
 					<td><span th:text="${cliente.email}" /></td>
-					<td><a th:href="@{/cliente/{id}(id=${cliente.idPersona})}">Modificar</a></td>
+					<td><a class="btn btn-warning"  th:href="@{/cliente/{id}(id=${cliente.idPersona})}">Modificar</a></td>
 					<td>
 						<form action="#"
 							th:action="@{/cliente/delete/{id}(id=${cliente.idPersona})}"

@@ -44,6 +44,17 @@ public class PedidoModel {
 	}
 
 
+	public PedidoModel(long idPedido, LocalDate fechaPedido, ProductoModel producto, int cantidad,
+			LocalModel local) {
+		this.setIdPedido(idPedido);
+		this.fechaPedido = fechaPedido;
+		this.setProducto(producto);
+		this.cantidad = cantidad;
+		this.local = local;
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public long getIdPedido() {
 		return idPedido;
 	}

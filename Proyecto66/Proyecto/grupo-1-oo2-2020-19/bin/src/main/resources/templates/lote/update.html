@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{layout}">
+
 <head>
 <title>Modificar Lote</title>
 <link rel="stylesheet" href="/css/styles.css">
@@ -14,7 +15,7 @@
 <body>
 	<div id="agregarTitulo">
 		<h1>
-			<a id="unla" href="/index">UNLa</a> Modificar Lote
+			Modificar Lote
 		</h1>
 	</div>
 	<div class="card bg-light col-md-7 mt-5 p-3 mx-auto">
@@ -35,16 +36,17 @@
 					id="dato">
 			</div>
 			<div class="form-group">
-				<label for="activo">Activo</label> <input type="text"
-					class="form-control" th:field="*{activo}" id="dato">
-			</div>
+					<label for="activo">Activo</label> <input type="checkbox"
+						th:field="*{activo}" />
+				</div>
 			<div class="form-group">
 				<label for="exampleFormControlSelect1">Producto</label> <select
 					class="form-control" id="exampleFormControlSelect1"
-					placeholder="Local" th:field="*{local.idLocal}">
+					placeholder="producto" th:field="*{producto.idProducto}">
 					<option th:each="p : ${producto}" th:value="${p.idProducto}"
 						th:text="${p.nombre}"></option>
 				</select>
+			</div>
 				<div class="form-group">
 					<label for="exampleFormControlSelect1">Local</label> <select
 						class="form-control" id="exampleFormControlSelect1"
@@ -53,15 +55,10 @@
 							th:text="${l.direccion}"></option>
 					</select>
 				</div>
-				<input type="submit" value="Editar" />
-		</form>
-		<form action="#" th:action="@{/lote/delete/{id}(id=${lote.idLote})}"
-			method="post">
-			<button type="submit" class="btn btn-danger">Elminar
-				Empleado</button>
+				<input class="btn btn-primary" type="submit" value="Editar" />
 		</form>
 		<form action="#" th:action="@{/lote/back}" method="post">
-			<button type="submit" class="btn btn-dark">Volver</button>
+			<button type="submit" class="btn btn-dark" style="float: right">Volver</button>
 		</form>
 	</div>
 

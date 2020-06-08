@@ -17,9 +17,6 @@ import com.unla.grupo1oo22020.services.ILocalService;
 import com.unla.grupo1oo22020.services.ILoteService;
 import com.unla.grupo1oo22020.services.IPedidoService;
 import com.unla.grupo1oo22020.services.IProductoService;
-import com.unla.grupo1oo22020.services.IEmpleadoService;
-import com.unla.grupo1oo22020.services.IClienteService;
-
 
 
 @Controller
@@ -42,13 +39,6 @@ public class PedidoController {
 	@Qualifier("loteService")
 	private ILoteService loteService;
 	
-	@Autowired
-	@Qualifier("clienteService")
-	private IClienteService clienteService;
-	
-	@Autowired
-	@Qualifier("empleadoService")
-	private IEmpleadoService empleadoService;
 	
 	@GetMapping("")
 	public ModelAndView index() {
@@ -61,10 +51,8 @@ public class PedidoController {
 	public ModelAndView create() {
 		ModelAndView maV = new ModelAndView(ViewRouteHelpers.PEDIDO_NEW);
 		maV.addObject("pedido", new PedidoModel());
-		maV.addObject("producto", productoService.getAll());
-		maV.addObject("cliente", clienteService.getAll());
-		maV.addObject("empleado", empleadoService.getAll());
-		maV.addObject("local", localService.getAll());
+		maV.addObject("producto", productoService.getAlls());
+		maV.addObject("locales", localService.getAlls());
 		return maV;
 	}
 	
@@ -81,10 +69,8 @@ public class PedidoController {
 	public ModelAndView get(@PathVariable("idPedido") long idPedido) {
 		ModelAndView maV = new ModelAndView(ViewRouteHelpers.PEDIDO_UPDATE);
 		maV.addObject("pedido", pedidoService.findByIdPedido(idPedido));
-		maV.addObject("producto", productoService.getAll());
-		maV.addObject("cliente", clienteService.getAll());
-		maV.addObject("empleado", empleadoService.getAll());
-		maV.addObject("locales", localService.getAll());
+		maV.addObject("producto", productoService.getAlls());
+		maV.addObject("locales", localService.getAlls());
 		return maV;
 	}
 	

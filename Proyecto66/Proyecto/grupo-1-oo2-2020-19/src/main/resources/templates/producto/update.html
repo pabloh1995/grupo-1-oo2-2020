@@ -14,7 +14,7 @@
 <div layout:fragment="content">
 <body>
 	<nav id="agregarTitulo">
-		<h1>UNLA - Modificar Producto</h1>
+		<h1> Modificar Producto</h1>
 	</nav>
 	<div class="card bg-light col-md-7 mt-5 p-3 mx-auto">
 		<form action="#" th:action="@{/producto/update}"
@@ -35,11 +35,11 @@
 					class="form-control" name="precioUnitario"  th:field="*{precioUnitario}" placeholder="Escribir precio unitario" />
 			</div>
 			<input type="hidden" th:field="*{fechaAlta}" />
-			<input class="update" type="submit"  value="Editar Producto" />
+			<input class="btn btn-primary" type="submit"  value="Editar" />
 		</form>
 
 		<form action="#" th:action="@{/empleado/back}" method="post">
-			<button type="submit" class="btn btn-dark">Volver</button>
+			<button type="submit" class="btn btn-dark" style="float: right">Volver</button>
 		</form>		
 	</div>
 </body>

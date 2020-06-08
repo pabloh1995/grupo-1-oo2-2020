@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
 
 <head>
     <title>Local</title>
 <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<meta charset="UTF-8"></head>
+<div layout:fragment="content">
 <body>
-<h1 id="header">
-<a id="unla" href="/index">UNLa</a> 
+<h1 id="header"> 
 Pedidos
 </h1>
 <div th:classappend="'alert-' + (${clase != null} ? ${clase} : info)" th:if="${mensaje != null}" th:text="${mensaje}" class="alert"> </div>
@@ -18,14 +19,9 @@ Pedidos
                 <th>Fecha de Pedido</th>
                 <th>Producto</th>
                 <th>Cantidad</th>
-                <th>PrecioUnitario</th>
                 <th>Local</th>
-                <th>Vendedor</th>
-                <th>Colaborador</th>
-                <th>Cliente</th>
-                <th>Estado</th>
-                <th>Subtotal</th>
-                <th>Accion</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -33,19 +29,22 @@ Pedidos
                 <td><span th:text="${pedido.fechaPedido}" /></td>
                 <td><span th:text="${pedido.producto.nombre}" /></td>
                 <td><span th:text="${pedido.cantidad}" /></td>
-                <td><span th:text="${pedido.producto.precioUnitario}" /></td>
                 <td><span th:text="${pedido.local.direccion}" /></td>
-                <td><span th:if="${pedido.vendedor}" th:text="${pedido.vendedor.nombre} +' '+ ${pedido.vendedor.apellido}" /></td>
-                <td><span th:if="${pedido.colaborador}" th:text="${pedido.colaborador.nombre} +' '+ ${pedido.colaborador.apellido}" /></td>
-                <td><span th:text="${pedido.cliente.nombre} +' ' + ${pedido.cliente.apellido}" /></td>
-                <td><span th:text="${pedido.aceptado}" /></td>
-                <td><span th:text="${pedido.subtotal}" /></td>
-                <td><a th:href="@{/pedido/{id}(id=${pedido.idPedido})}">Modificar</a></td>
+                <td><a class="btn btn-warning"  th:href="@{/pedido/{id}(id=${pedido.idPedido})}">Modificar</a></td>
+                <td>
+						<form action="#"
+							th:action="@{/pedido/delete/{id}(id=${pedido.idPedido})}"
+							method="post">
+							<button type="submit" class="btn btn-danger">Elminar
+								Pedido</button>
+
+						</form>
+					</td>
             </tr>
         </tbody>
     </table>
     <a class="btn btn-primary" href="/pedido/new">Agregar</a>
 
 </body>
-
+</div>
 </html>

@@ -14,7 +14,7 @@
 <div layout:fragment="content">
 <body>
 	<div id="agregarTitulo">
-		<h1>UNLA - Agregar Empleado</h1>
+		<h1>Agregar Empleado</h1>
 	</div>
 	<div class="card bg-light col-md-7 mt-5 p-3 mx-auto">
 		<form action="#" th:action="@{/empleado/create}"
@@ -37,28 +37,37 @@
 					th:field="*{dni}" id="dato">
 			</div>
 			<div class="form-group">
-				<label for="sueldoBasico">Sueldo Básico</label> <input type="text"
+				<label for="dni">Sueldo Básico</label> <input type="text"
 					class="form-control" th:field="*{sueldoBasico}" id="dato">
 			</div>
 			<div class="form-group">
-				<label for="comision">Comisión</label> <input type="text"
+				<label for="dni">Comisión</label> <input type="text"
 					class="form-control" th:field="*{comision}" id="dato">
 			</div>
 			<div class="form-group">
-				<label for="horarioTrabajoE">Horario de Entrada</label> <input type="time"
-					class="form-control" name="horarioTrabajoE"  value="" th:field="*{horarioTrabajoE}" 	>
+				<label for="dni">Horario de Entrada</label> <input type="time"
+					class="form-control" th:field="*{horarioTrabajoE}" id="dato">
 			</div>
 			<div class="form-group">
-				<label for="horarioTrabajoS">Horario de Salida</label> <input type="time"
-					class="form-control" name="horarioTrabajoS"  value="" th:field="*{horarioTrabajoS}" >
+				<label for="dni">Horario de Salida</label> <input type="time"
+					class="form-control" th:field="*{horarioTrabajoS}" id="dato">
 			</div>
 			<div class="form-group">
 				<label for="gerente">Gerente</label>
             <input type="checkbox" th:field="*{gerente}" />
-			</div>
+            </div>
+			<!-- <div class="form-group">
+				<label for="gerente">Gerente</label> <select class="form-control"
+					id="exampleFormControlSelect1" placeholder="Gerente"
+					th:field="*{gerente}">
+					<option th:each="e : ${empleado}" th:value="${e.gerente}"
+						th:text="${e.gerente}"></option>
+				</select> 
+			</div> -->
 			<div class="form-group">
-				<label for="local">Local</label>
-				 <select placeholder="Local" th:field="*{local.idLocal}">
+				<label for="exampleFormControlSelect1">Local</label> <select
+					class="form-control" id="exampleFormControlSelect1"
+					placeholder="Local" th:field="*{local.idLocal}">
 					<option th:each="l : ${locales}" th:value="${l.idLocal}"
 						th:text="${l.direccion}"></option>
 				</select>

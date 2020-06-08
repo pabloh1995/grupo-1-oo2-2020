@@ -11,9 +11,9 @@
 <meta charset="UTF-8">
 </head>
 <div layout:fragment="content">
-<body>
+<body class="update">
 	<div id="agregarTitulo">
-		<h1>UNLA - Modificar Cliente</h1>
+		<h1>Modificar Cliente</h1>
 	</div>
 	<div class="card bg-light col-md-7 mt-5 p-3 mx-auto">
 		<form action="#" th:action="@{/cliente/update}" th:object="${cliente}"
@@ -42,11 +42,11 @@
 					class="form-control" th:field="*{email}" id="dato"
 					aria-describedby="emailHelp">
 			</div>
-			<input class="update" type="submit" value="Editar" />
+			<input class="btn btn-primary" type="submit" value="Editar" />
 		</form>
 
 		<form action="#" th:action="@{/cliente/back}" method="post">
-			<button type="submit" class="btn btn-dark">Volver</button>
+			<button type="submit" class="btn btn-dark" style="float: right">Volver</button>
 		</form>
 	</div>
 

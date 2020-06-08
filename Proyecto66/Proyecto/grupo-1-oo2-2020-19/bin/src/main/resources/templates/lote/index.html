@@ -2,7 +2,6 @@
 <html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{layout}">
 
-
 <head>
 <title>Lote</title>
 <link rel="stylesheet" href="/css/styles.css">
@@ -13,37 +12,48 @@
 <meta charset="UTF-8">
 </head>
 <div layout:fragment="content">
-<body>
-	<h1 id="header">
-		<a id="unla" href="/index">UNLa</a> Lotes
-	</h1>
-	<table class="table">
-		<thead class="thead-dark">
-			<tr class="bg-info">
-				<th>Fecha de Ingreso</th>
-				<th>Cantidad de Ingreso</th>
-				<th>Cantidad Actual</th>
-				<th>Activo</th>
-				<th>Producto</th>
-				<th>Local</th>
-				<th>Acción</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="lote : ${lote}">
-				<td><span th:text="${lote.fechaIngreso}" /></td>
-				<td><span th:text="${lote.cantidadIngreso}" /></td>
-				<td><span th:text="${lote.cantidadActual}" /></td>
-				<td><span th:text="${lote.activo}" /></td>
-				<td><span th:text="${lote.producto.nombre}" /></td>
-				<td><span th:text="${lote.local.direccion}" /></td>
-				<td><a th:href="@{/lote/{id}(id=${lote.idLote})}">Modificar</a></td>
-			</tr>
-		</tbody>
-	</table>
-	<a class="btn btn-primary" href="/lote/new">Agregar</a>
+	<body>
+		<h1 id="header">Lotes</h1>
+		<div th:classappend="'alert-' + (${clase != null} ? ${clase} : info)"
+			th:if="${mensaje != null}" th:text="${mensaje}" class="alert"></div>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr class="bg-info">
+					<th>Fecha de Ingreso</th>
+					<th>Cantidad de Ingreso</th>
+					<th>Cantidad Actual</th>
+					<th>Activo</th>
+					<th>Producto</th>
+					<th>Local</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="lote : ${lote}">
+					<td><span th:text="${lote.fechaIngreso}" /></td>
+					<td><span th:text="${lote.cantidadIngreso}" /></td>
+					<td><span th:text="${lote.cantidadActual}" /></td>
+					<td><span th:text="${lote.activo}" /></td>
+					<td><span th:text="${lote.producto.nombre}" /></td>
+					<td><span th:text="${lote.local.direccion}" /></td>
+					<td><a class="btn btn-warning"
+						th:href="@{/lote/{id}(id=${lote.idLote})}">Modificar</a></td>
+					<td>
+						<form action="#"
+							th:action="@{/lote/delete/{id}(id=${lote.idLote})}"
+							method="post">
+							<button type="submit" class="btn btn-danger">Elminar
+								Lote</button>
+
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<a class="btn btn-primary" href="/lote/new">Agregar</a>
 
 
-</body>
+	</body>
 </div>
 </html>
