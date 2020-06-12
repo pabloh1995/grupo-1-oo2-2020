@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+
+<head>
+<title>Agregar SolicitudStock</title>
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+<meta charset="UTF-8">
+</head>
+<div layout:fragment="content">
+<body>
+	<div id="agregarTitulo">
+		<h1>
+			Agregar SolicitudStock
+		</h1>
+	</div>
+	<div class="card bg-light col-md-7 mt-5 p-3 mx-auto">
+		<form action="#" th:action="@{/solicitudStock/create}" th:object="${solicitudStock}"
+			method="post">
+			<div class="form-group">
+				<label for="date">Fecha Solicitud Stock</label> <input type="string"
+					class="form-control" th:field="*{fechaSolicitudStock}" id="dato">
+			</div>
+			<div class="form-group">
+				<label for="exampleFormControlSelect1">Producto</label> <select
+					class="form-control" id="exampleFormControlSelect1"
+					placeholder="Producto" th:field="*{producto.idProducto}">
+					<option th:each="p : ${producto}" th:value="${p.idProducto}"
+						th:text="${p.nombre}"></option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="cantidad">Cantidad</label> <input type="text"
+					class="form-control" th:field="*{cantidad}" id="dato">
+			</div>
+			<input type="hidden" th:field="*{aceptado}" />
+			<div class="form-group">
+				<label for="empleado">Empleado</label> <select
+					class="form-control" name="empleado" th:field="*{empleado.idPersona}">
+					<option th:each="e : ${empleado}" th:value="${e.idPersona}"
+						th:text="${e.apellido}"></option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="local">Mi Local</label> <select
+					class="form-control" name="local" th:field="*{local.idLocal}">
+					<option th:each="l : ${locales}" th:value="${l.idLocal}"
+						th:text="${l.direccion}"></option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="local2">Solicitar al Local</label> <select
+					class="form-control" name="local2" th:field="*{local2.idLocal}">
+					<option th:each="l : ${locales}" th:value="${l.idLocal}"
+						th:text="${l.direccion}"></option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="colaborador">Colaborador</label> <select
+					class="form-control" name="colaborador" th:field="*{colaborador.idPersona}">
+					<option th:each="e : ${empleado}" th:value="${e.idPersona}"
+						th:text="${e.apellido}"></option>
+				</select>
+			</div>
+			<button type="submit" class="btn btn-primary">Agregar</button>
+		</form>
+	</div>
+</body>
+</div>
+</html>
