@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Iniciar Sesion</title>
+		  <link rel="stylesheet" href="/css/login.css"> 
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		
+	</head>
+<body>
+    <div class="card bg-light col-md-4 mt-6 p-4 mx-auto " >
+        
+             
+            <form th:action="@{/loginprocess}" method="post">
+            <div class="form-group mt-4">
+            <!-- 
+            <img src="/img/user-png-icon-male-user-icon-512.png" alt="" class="user" > -->
+                
+                <h4>Iniciar Sesión</h4>
+                 
+                <label for="usuario">Usuario</label>
+                <input type="text" class="form-control" name="usuario"  placeholder="Escribí tu usuario..." >
+            </div>
+            
+             <div class="form-group">
+                <label for="contraseña">Contraseña</label>
+                <input type="password" class="form-control" name="contraseña"    placeholder="Escribí tu contraseña..." >
+            </div>
+            <br>
+       
+            <button type="submit" class="btn btn-success ml-6 px-4 ">
+                
+            Ingresar
+            </button>
+           <br>
+         <div th:if="${error != null}" class="alert alert-danger mt-4">
+		    	Usuario o Contraseña incorrecto. Por favor, intentelo nuevamente.
+		    </div>
+
+        </form>
+        
+        </div>
+        
+      
+</body>
+</html>
