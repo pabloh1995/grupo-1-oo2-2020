@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+
+<head>
+<title>Agregar Producto</title>
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+<meta charset="UTF-8">
+</head>
+<div layout:fragment="content">
+<body>
+	<nav id="agregarTitulo">
+		<h1>Agregar Producto</h1>
+	</nav>
+	<div class="card bg-light col-md-7 mt-5 p-3 mx-auto">
+		<form action="#" th:action="@{/producto/create}"
+			th:object="${producto}" method="post">
+			<div class="form-group">
+				<label for="nombre">Nombre</label>                 
+				<input autocomplete="off" autofocus th:field="*{nombre}" id="nombre"
+                       placeholder="Escribe el nombre del producto" type="text"
+                       class="form-control" th:classappend="${#fields.hasErrors('nombre')} ? 'is-invalid' : ''">
+                <div class="invalid-feedback" th:errors="*{nombre}"></div>
+			</div>
+			<div class="form-group">
+				<label for="descripcion">Descripción</label> 
+				<input autocomplete="off" autofocus th:field="*{descripcion}" id="descripcion"
+                       placeholder="Escribe la descripcion del producto" type="text"
+                       class="form-control" th:classappend="${#fields.hasErrors('descripcion')} ? 'is-invalid' : ''">
+                <div class="invalid-feedback" th:errors="*{descripcion}"></div>
+			</div>
+			<div class="form-group">
+				<label for="precioUnitario">Precio</label> <input type="text"
+					class="form-control" th:field="*{precioUnitario}" id="dato">
+			</div>
+			<button type="submit" class="btn btn-primary">Agregar</button>
+		</form>
+	</div>
+</body>
+</div>
+</html>
