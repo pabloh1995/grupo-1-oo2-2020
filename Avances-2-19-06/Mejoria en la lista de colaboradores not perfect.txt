@@ -1,0 +1,65 @@
+Agregar en:
+
+IPedidoService :
+
+import com.unla.grupo1oo22020.models.EmpleadoModel;
+
+	public List<EmpleadoModel> getEmpleadosColaboradores();
+
+
+
+en la implementacion en PedidoService :
+
+import com.unla.grupo1oo22020.models.EmpleadoModel;
+import com.unla.grupo1oo22020.services.IEmpleadoService;
+
+	@Autowired
+	@Qualifier("empleadoService")
+	private IEmpleadoService empleadoService;
+
+
+
+	public List<EmpleadoModel> getEmpleadosColaboradores(){
+		List<EmpleadoModel> colaboradores = new ArrayList<EmpleadoModel>();
+		List<EmpleadoModel> auxiliar = new ArrayList<EmpleadoModel>();
+		List<LocalModel> locales = new ArrayList<LocalModel>();
+		LocalModel local = new LocalModel();
+		local = getLocal();
+		locales = localService.getAlls();
+		int i=0, j=0;
+		while(i<locales.size()) {
+			if(locales.get(i).getIdLocal() != local.getIdLocal()) {
+				auxiliar = empleadoService.findByIdLocalNoGerente(locales.get(i).getIdLocal());
+				while(j<auxiliar.size()) {
+					colaboradores.add(auxiliar.get(j));
+					j++;
+				}
+			}
+			i++;
+		}
+		return colaboradores;
+	}
+
+
+
+
+MODIFICAR en SolicitudStockController :
+
+	@GetMapping("/new")
+	public ModelAndView create() {
+		ModelAndView mAV = new ModelAndView(ViewRouteHelpers.SOLICITUDSTOCK_NEW);
+		mAV.addObject("solicitudStock", new SolicitudStockModel());
+		mAV.addObject("locales", localService.getAlls());
+		mAV.addObject("producto", productoService.getAlls());
+		mAV.addObject("empleadosL2", pedidoService.getEmpleadosColaboradores());
+		mAV.addObject("empleadosL1", empleadoService.findByIdLocalNoGerente(pedidoService.getLocal().getIdLocal()));
+		mAV.addObject("localesConStock", pedidoService.LocalesConStock());
+		return mAV;
+	}
+
+Agregar en SolicitudStockController :
+
+	@PostMapping("/back")
+	public RedirectView back() {
+		return new RedirectView(ViewRouteHelpers.SOLICITUDSTOCK_ROOT);
+	}
