@@ -1,0 +1,41 @@
+agregar en:
+
+
+IPedidoService
+
+
+	public LocalModel getLocal();
+
+
+
+en la implementacion en PedidoService
+
+	public LocalModel getLocal() {
+		PedidoModel pedidoAux = new PedidoModel();
+		LocalModel local = new LocalModel();
+		int ultimoPedido=0;
+		List<PedidoModel> pedidos = new ArrayList<PedidoModel>();
+		pedidos = getAlls();
+		ultimoPedido = pedidos.size();
+		pedidoAux = pedidos.get(ultimoPedido-1);
+		local = pedidoAux.getLocal();
+		return local;
+	}
+
+
+IEmpleadoService
+
+	public List<EmpleadoModel> findByIdLocalNoGerente(long idLocal);
+
+
+en la implementacion en EmpleadoService
+
+	@Override
+	public List<EmpleadoModel> findByIdLocalNoGerente(long idLocal){
+		List<EmpleadoModel> empl = new ArrayList<EmpleadoModel>();
+		for (Empleado empleado : empleadoRepository.findByIdLocal(idLocal)) {
+			if(empleado.isGerente()==false) {
+			empl.add(empleadoConverter.entityToModel(empleado));
+		}}
+		return empl;
+	}
