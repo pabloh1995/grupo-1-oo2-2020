@@ -1,0 +1,18 @@
+Estamos con un problema que no podemos seguir avanzando porque estamos trabados con
+la confirmación de una venta. Entendemos de que nos atrasamos mucho con el trabajo y 
+estamos a las corridas a último momento, pero desde el viernes que estamos con ésto y nos está 
+robando el poco tiempo que nos queda.
+
+Nosotros al hacer un pedido, en principio, al crearlo ya nos lo descontaba stock todo bien. Despues,
+entendimos que pedido no deberia ser la venta. Entonces hicimos que si hay stock del producto 
+pedido nos habilite un GENERAR VENTA, sino SOLICITAR A OTRO LOCAL (que ahi esta
+trabajando otro compañero). Pero nuestro problema esta en el generar venta.
+
+La idea es que al generar venta, nos la tome como una venta confirmada y ahi descuente el stock
+y se borre de pedido. Lo que no sabemos es si crear otra clase llamada VENTA y ahi nos 
+guarde todas esas ventas confirmadas, o en la misma clase pedido crear una lista de venta 
+confirmadas e ir guardandolas ahi. Y despues mostrarla. Pero intentamos de las dos maneras 
+y no logramos llegar a nuestro objetivo.
+
+(El generarVenta lo laburamos en el pedidoController)
+
