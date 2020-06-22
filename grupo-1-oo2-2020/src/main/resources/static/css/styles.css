@@ -1,0 +1,52 @@
+#boton {
+	background-color: dark;
+	border: none;
+	color: darkgrey;
+}
+
+#agregarTitulo {
+	text-align: center;
+	margin-top: 10px;
+}
+
+#header {
+	text-align: center;
+}
+
+.html {
+	position: relative;
+	min-height: 50%;
+	background-image:
+		url(https://doofindermedia.s3.amazonaws.com/blog/2016/07/gestion-tienda-fisica-y-online.jpg);
+	background-color: rgb(1, 194, 237);
+	background-repeat: no-repeat;
+	background-size: 80%;
+	background-position-x: center;
+	background-position-y: 100px;
+}
+
+.texto {
+	text-align: center;
+	color: #000;
+}
+
+#home {
+	text-align: center;
+	margin-top: 200px;
+	font-size: 100px;
+}
+
+#pedidos {
+	position: relative;
+	background-image:
+		url(https://image.freepik.com/vector-gratis/carrito-supermercado-completo-compra-carrito-comida-icono-tienda-comestibles_53562-8227.jpg);
+	background-color: rgb(66, 198, 219);
+	background-repeat: no-repeat;
+}
+
+#productos {
+	position: center;
+	background-image: url(https://i.pinimg.com/236x/9e/cd/a5/9ecda51d8c2bad23237e6e63159df01b.jpg); 
+	background-color: rgb(58, 58, 58);
+	background-repeat: no-repeat;
+}
