@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+	
+<head>
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+<meta charset="UTF-8">
+<title>Mostrar Distancia</title>
+</head>
+<div layout:fragment="content">
+<body>
+	<div id="agregarTitulo">
+		<h1>Mostrar Distancia</h1>
+	</div>
+	<div class="card bg-light col-md-7 mt-5 p-3 mx-auto">
+		<form action="s#" th:action="@{/local/sacardistancia}" method="post">
+			<!-- 			<div class="form-group"> -->
+			<!-- 				<label for="exampleFormControlSelect1">Local "A"</label> <input -->
+			<!-- 					type="text" class="form-control" th:text="${lat1}" id="dato"> -->
+			<!-- 			</div> -->
+			<!-- 			<div class="form-group"> -->
+			<!-- 				<label for="exampleFormControlSelect1">Local "B"</label> <input -->
+			<!-- 					type="text" class="form-control" th:text="${lat2}" id="dato"> -->
+			<!-- 			</div> -->
+			<div class="form-group">
+				<label for="exampleFormControlSelect1">Distancia en Km.</label>
+				<td><span th:text="${distancia}"/></td>
+			</div>
+		</form>
+		<form action="#" th:action="@{/local/back}" method="post">
+			<button type="submit" class="btn btn-dark">Volver</button>
+		</form>
+	</div>
+
+</body>
+</div>
+</html>
+
+<!-- <!DOCTYPE html> -->
+<!-- <html> -->
+<!-- <head> -->
+<!-- <meta charset="ISO-8859-1"> -->
+<!-- <title>Insert title here</title> -->
+<!-- </head> -->
+<!-- <body> -->
+<!-- <p>Local 1: </p> -->
+<!-- <p>Latitud: <span th:text="${lat1}"/>, longitud:  <span th:text="${lng1}"/></p> -->
+
+
+<!-- <p>Local 2: </p> -->
+<!-- <p>Latitud: <span th:text="${lat2}"/>, longitud:  <span th:text="${lng2}"/></p> -->
+
+<!-- <p>Distancia en kilometros: </p> -->
+<!-- <td><span th:text="${distancia}"/></td> -->
+<!-- <form action="#" th:action="@{/local/back}" method="post"> -->
+<!-- 	<input type="submit" value="volver" /> -->
+<!-- </form> -->
+
+<!-- </body> -->
+<!-- </html> -->
