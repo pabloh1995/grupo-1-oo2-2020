@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+<head>
+<title>Ventas</title>
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+<meta charset="UTF-8">
+</head>
+<div layout:fragment="content">
+	<body>
+		<h1 id="header">Ventas</h1>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr class="bg-info">
+					<th>Venta</th>
+					<th>Fecha Venta</th>
+					<th>Empleado</th>
+					<th>Cliente</th>
+					<th>Local</th>
+					<th>Total</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="venta : ${venta}">
+					<td><span th:text="${venta.idVenta}" /></td>
+					<td><span th:text="${venta.fechaVenta}" /></td>
+					<td><span th:text="${venta.empleado.nombre} +' ' + ${venta.empleado.apellido}" /></td>
+					<td><span th:text="${venta.cliente.nombre} +' ' + ${venta.cliente.apellido}" /></td>
+					<td><span th:text="${venta.local.direccion}" /></td>
+					<td><span th:text="${venta.total}" /></td>
+					<td><a class="btn btn-warning"  th:href="@{/detalleVenta/{id}(id=${venta.idVenta})}">Detalle</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<form action="#" th:action="@{/venta/create}" th:object="${venta}"	method="post">
+		<button type="submit" class="btn btn-primary">Realizar Venta</button>
+		</form>
+	</body>
+</div>
+</html>

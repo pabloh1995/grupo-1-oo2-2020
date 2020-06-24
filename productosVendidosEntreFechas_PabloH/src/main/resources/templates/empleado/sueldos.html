@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+
+<head>
+<title>Empleados</title>
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+<meta charset="UTF-8">
+</head>
+<div layout:fragment="content">
+	<body>
+		<h1 id="header">Sueldos Empleados</h1>
+
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>DNI</th>
+					<th>Sueldo Basico</th>
+					<th>Comisión</th>
+					<th>Gerente</th>
+					<th>Sueldo Bruto</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="empleado : ${sueldosBruto}">
+					<td><span th:text="${empleado.empleado.nombre}" /></td>
+					<td><span th:text="${empleado.empleado.apellido}" /></td>
+					<td><span th:text="${empleado.empleado.dni}" /></td>
+					<td><span th:text="${empleado.empleado.sueldoBasico}" /></td>
+					<td><span th:text="${empleado.empleado.comision}" /></td>
+					<td><span th:text="${empleado.empleado.gerente}" /></td>
+					<td><span th:text="${empleado.sueldoBruto}" /></td>
+
+					<td>
+
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</body>
+</div>
+</html>

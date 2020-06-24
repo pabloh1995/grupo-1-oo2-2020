@@ -1,0 +1,54 @@
+#boton {
+	background-color: dark;
+	border: none;
+	color: darkgrey;
+}
+
+#agregarTitulo {
+	text-align: center;
+	margin-top: 10px;
+}
+
+#header {
+	text-align: center;
+}
+
+.html {
+	position: relative;
+	min-height: 50%;
+	background-image: url(/img/fondo.jpg);
+	background-color: rgb(1, 194, 237);
+	background-repeat: no-repeat;
+	background-size: 80%;
+	background-position-x: center;
+	background-position-y: 100px;
+}
+
+.texto {
+	text-align: center;
+	color: #000;
+}
+
+#home {
+	text-align: center;
+	margin-top: 200px;
+	font-size: 100px;
+}
+
+#pedidos {
+	position: relative;
+	background-image: url(/img/carrito.jpg);
+	background-color: rgb(66, 198, 219);
+	background-repeat: no-repeat;
+}
+
+#productos {
+	position: center;
+	background-image: url(/img/productos.jpg);
+	background-color: rgb(58, 58, 58);
+	background-repeat: no-repeat;
+}
+
+#loguot {
+	margin-left: 40%;
+}
