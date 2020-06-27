@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+<head>
+<title>Agregar Empleado</title>
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+<meta charset="UTF-8">
+</head>
+<div layout:fragment="content">
+<body>
+	<nav id="agregarTitulo">
+		<h1>UNLA - Modificar Empleado</h1>
+	</nav>
+	<div class="card bg-light col-md-7 mt-5 p-3 mx-auto">
+		<form action="#" th:action="@{/empleado/update}"
+			th:object="${empleado}" method="post">
+			<input type="hidden" th:field="*{idPersona}"  />
+			
+			<div class="form-group">
+				<label for="nombre">Nombre</label> <input type="text"
+					class="form-control" th:field="*{nombre}" >
+			</div>
+			<div class="form-group">
+				<label for="apellido">Apellido</label> <input type="text"
+					class="form-control" th:field="*{apellido}" >
+			</div>
+			<div class="form-group">
+				<label for="fechaDeNacimiento">Fecha De Nacimiento</label> <input
+					type="date" class="form-control" th:field="*{fechaNacimiento}">
+			</div>
+			<div class="form-group">
+				<label for="dni">DNI</label> <input type="text" class="form-control"
+					th:field="*{dni}" >
+			</div>
+			<div class="form-group">
+				<label for="sueldoBasico">Sueldo Básico</label> <input type="text"
+					class="form-control" th:field="*{sueldoBasico}" >
+			</div>
+			<div class="form-group">
+				<label for="comision">Comisión</label> <input type="text"
+					class="form-control" name="horarioTrabajoE"  value="" th:field="*{comision}" >
+			</div>
+			<div class="form-group">
+				<label for="horarioTrabajoE">Horario de Entrada</label> <input
+					type="time" class="form-control" name="horarioTrabajoS"  value="" th:field="*{horarioTrabajoE}"
+					>
+			</div>
+			<div class="form-group">
+				<label for="horarioTrabajoS">Horario de Salida</label> <input
+					type="time" class="form-control" th:field="*{horarioTrabajoS}"
+					>
+			</div>
+			<div class="form-group">
+				<label for="gerente">Gerente</label>
+            <input type="checkbox" th:field="*{gerente}" />
+					
+			</div>
+			<div class="form-group">
+				<label for="local">Local</label>
+				 <select placeholder="local" th:field="*{local.idLocal}">
+					<option th:each="l : ${locales}" th:value="${l.idLocal}"
+						th:text="${l.direccion}"></option>
+				</select>
+			</div>
+			<input class="update" type="submit" value="Editar" />
+		</form>
+		<form action="#" th:action="@{/empleado/back}" method="post">
+			<button type="submit" class="btn btn-dark">Volver</button>
+		</form>
+	</div>
+
+</body>
+</div>
+</html>

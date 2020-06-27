@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+
+<head>
+<title>Local</title>
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+<meta charset="UTF-8">
+</head>
+<div layout:fragment="content">
+	<body>
+		<h1 id="header">Locales</h1>
+		<div th:classappend="'alert-' + (${clase != null} ? ${clase} : info)"
+			th:if="${mensaje != null}" th:text="${mensaje}" class="alert"></div>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr class="bg-info">
+					<th>Direccion</th>
+					<th>Latitud</th>
+					<th>Longitud</th>
+					<th>Telefono</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="local : ${local}">
+					<td><span th:text="${local.direccion}" /></td>
+					<td><span th:text="${local.latitud}" /></td>
+					<td><span th:text="${local.longitud}" /></td>
+					<td><span th:text="${local.telefono}" /></td>
+					<td><a th:href="@{/local/{id}(id=${local.idLocal})}">Modificar</a></td>
+					<td>
+						<form action="#"
+							th:action="@{/local/delete/{id}(id=${local.idLocal})}"
+							method="post">
+							<button type="submit" class="btn btn-danger">Elminar
+								Local</button>
+
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<a class="btn btn-primary" href="/local/new">Agregar</a>
+
+	</body>
+</div>
+</html>
