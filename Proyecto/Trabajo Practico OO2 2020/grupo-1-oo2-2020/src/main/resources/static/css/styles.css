@@ -1,0 +1,94 @@
+#boton {
+	background-color: dark;
+	border: none;
+	color: darkgrey;
+}
+
+#agregarTitulo {
+	text-align: center;
+	margin-top: 10px;
+}
+
+#header {
+	text-align: center;
+}
+
+#btnerror {
+	position: absolute;
+	left: 0;
+	margin-left: 5px;
+}
+
+.error {
+	position: absolute;
+	margin-left: -6%;
+}
+
+footer {
+	position: absolute;
+	top: 195%;
+	color: white;
+}
+
+.html {
+	position: relative;
+	min-height: 50%;
+	background-image: url(/img/Messi2.jpg);
+	background-color: rgb(0,0,0);
+	background-repeat: no-repeat;
+	background-size: 150%;
+	background-position-x: -100px;
+	background-position-y: -500px;
+}
+
+#indumentaria {
+	left: 7%;
+	top: 200px;
+	color: white;
+}
+
+#goat {
+	left: 5%;
+	top: 200px;
+	color: rgb(147,191,226);
+	font-size: 300px;
+}
+
+#banner {
+	position: relative;
+	left: 5%;
+	top: 200px;
+	float: left;
+	font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+	font-style: italic;
+	font-size: 200px;
+}
+
+.texto {
+	text-align: center;
+	color: #000;
+}
+
+#home {
+	text-align: center;
+	margin-top: 200px;
+	font-size: 100px;
+}
+
+#pedidos {
+	position: relative;
+	background-image: url(/img/carrito.jpg);
+	background-color: rgb(66, 198, 219);
+	background-repeat: no-repeat;
+}
+
+#productos {
+	position: center;
+	background-image: url(/img/productos.jpg);
+	background-color: rgb(58, 58, 58);
+	background-repeat: no-repeat;
+}
+
+#loguot {
+	margin-left: 40%;
+}

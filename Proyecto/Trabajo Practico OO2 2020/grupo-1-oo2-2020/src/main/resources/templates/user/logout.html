@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Login</title>
+<link rel="stylesheet" href="/css/login.css">
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+
+<link rel="icon" href="../../static/img/logo.png"
+	th:href="@{/img/logo.png}">
+</head>
+<body>
+	<div class="card bg-light col-md-4 mt-6 p-4 mx-auto ">
+
+
+		<form th:action="@{/loginprocess}" method="post">
+			<div class="form-group mt-4">
+				<img src="/img/user.png" alt="" class="user"> <label
+					for="username">Usuario</label> <input type="text"
+					class="form-control" name="username"
+					placeholder="Nombre de Usuario">
+			</div>
+			<div class="form-group">
+				<label for="contraseña">Contraseña</label> <input type="password"
+					class="form-control" name="password" placeholder="Contraseña">
+			</div>
+			<div class="form-group"></div>
+			<button type="submit" class="btn btn-primary">Ingresar</button>
+
+			<div class="alert alert-success mt-4">Has cerrado la sesión</div>
+
+		</form>
+
+	</div>
+
+	<footer> Grupo 1 - Romano Sebastián Félix, Charczuk Pablo,
+		Grimberg Kevin y Hermida Pablo </footer>
+
+</body>
+</html>
